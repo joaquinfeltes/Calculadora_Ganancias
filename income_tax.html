@@ -1,0 +1,122 @@
+<fieldset>
+  <h1 style="text-align: center">IMPUESTO A LAS GANANCIAS</h1>
+  <h4>Empleados en relación de dependencia</h4>
+
+  <p>Elija el año a calcular</p>
+  <div class="select-option">
+    <select name="select_year" id="select_year">
+      <option value="">---Elegir una opción---</option>
+      <option value="2020">Año 2020</option>
+      <option value="2021">Año 2021</option>
+    </select>
+  </div>
+
+  <!--   <p>TEST year <span id="div_year"></span></p>
+   -->
+  <p>Vive en región patagonica?</p>
+  <div class="select-option">
+    <select name="select_region" id="select_region">
+      <option value="">---Elegir una opción---</option>
+      <option value="0">resto del pais</option>
+      <option value="1">región patagonica</option>
+    </select>
+  </div>
+
+  <p>Ingrese sueldo bruto (promedio mensual)</p>
+  <div>
+    <input type="number" id="sueldo_bruto" value="0" />
+  </div>
+
+  <p>Conyuge con ingresos menores a <span id="myGMNI"></span></p>
+
+  <div class="select-option">
+    <select name="conyuge" id="conyuge">
+      <option value="">---Elegir una opción---</option>
+      <option value="0">No</option>
+      <option value="1">Si</option>
+    </select>
+  </div>
+
+  <p>Cantidad de hijos menores a 18 años /discapacitados:</p>
+  <div>
+    <input type="number" id="hijos" value="0" />
+  </div>
+
+  <p id="hijos_label_1" style="display: none">Cobra asignaciones familiares?</p>
+  <div class="select-option">
+    <select name="asignaciones" id="asignaciones" style="display: none">
+      <option value="">---Elegir una opción---</option>
+      <option value="0">No</option>
+      <option value="1">Si</option>
+    </select>
+  </div>
+
+  <p id="hijos_label_2" style="display: none">El otro padre tambien deduce?</p>
+  <div class="select-option">
+    <select name="otro_padre_deduce" id="otro_padre_deduce" style="display: none">
+      <option value="">---Elegir una opción---</option>
+      <option value="0">No</option>
+      <option value="1">Si</option>
+    </select>
+  </div>
+
+  <p>Servicio domestico (sueldo mas aporte jubilatorio)</p>
+  <div>
+    <input type="number" id="servicio_domestico" value="0" />
+  </div>
+
+  <p>Alquiler de casa o habitacion</p>
+  <div>
+    <input type="number" id="alquiler" value="0" />
+  </div>
+
+  <p>Cuotas de salud (prepaga)(titular y familiar a cargo)</p>
+  <div>
+    <input type="number" id="prepaga" value="0" />
+  </div>
+
+  <p>Seguro de vida</p>
+  <div>
+    <input type="number" id="seguro_vida" value="0" />
+  </div>
+
+  <p>Seguro de retiro</p>
+  <div>
+    <input type="number" id="seguro_retiro" value="0" />
+  </div>
+
+  <p>Intereses creditos hipotecarios</p>
+  <div>
+    <input type="number" id="intereses_creditos" value="0" />
+  </div>
+
+  <p>Viajantes y corredores de comercio</p>
+  <div>
+    <input type="number" id="viajantes" value="0" />
+  </div>
+
+  <p>Gastos movilidad</p>
+  <div>
+    <input type="number" id="movilidad" value="0" />
+  </div>
+
+  <p>Indumentaria y equipamento de trabajo</p>
+  <div>
+    <input type="number" id="equipamento" value="0" />
+  </div>
+
+  <p>Otras deducciones</p>
+  <div>
+    <input type="number" id="otro" value="0" />
+  </div>
+
+  <div>
+    <a class="icon document color button" type="submit" id="button_calculate" value="Calculate">
+      Calcular</a
+    >
+  </div>
+  <!-- para ver la base imponible -->
+  <p>TEST base imponible <span id="div_baseimp"></span></p>
+
+  <p class="result" id="text_total"></p>
+</fieldset>
