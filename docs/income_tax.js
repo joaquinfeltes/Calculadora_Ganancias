@@ -84,7 +84,7 @@ const CONSTANTS = {
   },
 };
 
-//Funciones
+//Functions
 $(document).ready(function () {
   var retirement_contribution = APORTE_JUBILATORIO;
   var healt_insurance_contribution = APORTE_OBRA_SOCIAL;
@@ -106,7 +106,8 @@ $(document).ready(function () {
   /* var div_year = document.getElementById("div_year");
   div_year.textContent = "".concat("", year_val); */
 
-  //year parsing
+  //Year parsing
+  //  here and in the region parsing I calculate the gmni because I have to show it before the user press the button
   $("#select_year").on("change", function () {
     year_val = parseInt(document.getElementById("select_year").value);
     //for testing
@@ -170,7 +171,9 @@ $(document).ready(function () {
     other_father_deducts = document.getElementById("otro_padre_deduce").value;
   });
 
-  //Button----------------------------------------------------------
+  //-------------------Button-------------------
+  // Tengo que hacer algo para que se seleccionen las opciones de year, region y conyuge o si no se tire un error.
+  // Lo mismo con las opciones de hijos, pero solo tiene que tirarse un error si hijos es mayor a 0, si no, puede estar vacio.
   $("#button_calculate").on("click", function () {
     var yearly_payement = ZERO;
     var i = ZERO;
@@ -262,6 +265,16 @@ $(document).ready(function () {
 
     if (tax_base < ZERO) {
       yearly_payement = ZERO;
+
+      //para testeo
+      var div_baseimp = document.getElementById("div_baseimp");
+      div_baseimp.textContent = "este es el monto ".concat(
+        "",
+        tax_base,
+        ", estamos en la primera categoria, ",
+        " este es el yearly: ",
+        yearly_payement
+      );
     } else if (tax_base < CONSTANTS[year_val].TABLA_ALICUOTA_TOPES[SIZE]) {
       while (yearly_payement === ZERO) {
         if (
@@ -273,13 +286,14 @@ $(document).ready(function () {
             (tax_base - CONSTANTS[year_val].TABLA_ALICUOTA_TOPES[i]) *
               CONSTANTS[year_val].TABLA_ALICUOTA_PORCENTAJES[i];
 
+          //para testeo
           var div_baseimp = document.getElementById("div_baseimp");
-          div_baseimp.textContent = "este es el monto".concat(
+          div_baseimp.textContent = "este es el monto ".concat(
             "",
             tax_base,
-            ", esta es la i :",
+            ", esta es la i : ",
             i,
-            "/p este es el yearly:",
+            " este es el yearly: ",
             yearly_payement
           );
         }
@@ -290,9 +304,20 @@ $(document).ready(function () {
         CONSTANTS[year_val].TABLA_ALICUOTA_BASES[SIZE] +
         (tax_base - CONSTANTS[year_val].TABLA_ALICUOTA_TOPES[SIZE]) *
           CONSTANTS[year_val].TABLA_ALICUOTA_PORCENTAJES[SIZE];
+
+      //para testeo
+      var div_baseimp = document.getElementById("div_baseimp");
+      div_baseimp.textContent = "este es el monto ".concat(
+        "",
+        tax_base,
+        ", estamos en la ultima categoria, ",
+        " este es el yearly: ",
+        yearly_payement
+      );
     }
 
     monthly_payement = yearly_payement / MONTHS;
+    monthly_payement = monthly_payement.toFixed(2);
 
     var div = document.getElementById("text_total");
     mytext = "Monto a pagar $".concat(" ", monthly_payement, " mensual (promedio ", year_val, ")");
