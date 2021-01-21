@@ -107,7 +107,8 @@ $(document).ready(function () {
   div_year.textContent = "".concat("", year_val); */
 
   //Year parsing
-  //  here and in the region parsing I calculate the gmni because I have to show it before the user press the button
+  //Here and in the region parsing I calculate the gmni
+  //this is because I have to show it in the middle of the programm
   $("#select_year").on("change", function () {
     year_val = parseInt(document.getElementById("select_year").value);
     //for testing
@@ -137,12 +138,12 @@ $(document).ready(function () {
     }
   });
 
-  //conyuge
+  //spouse
   $("#conyuge").on("change", function () {
     can_deduct_spouse = document.getElementById("conyuge").value;
   });
 
-  //hijos
+  //childs
   $("#hijos")
     .on("input", function () {
       var childs_amount = parseInt(document.getElementById("hijos").value);
@@ -151,40 +152,43 @@ $(document).ready(function () {
         $("#hijos_label_1").hide();
         $("#hijos_label_2").hide();
         $("#asignaciones").hide();
-        $("#otro_padre_deduce").hide();
+        $("#otro_padre_deduce").hide(); //------ hacer despues de asignaciones -- este se tiene que quedar
       } else {
         //con hijos
         $("#hijos_label_1").show();
         $("#hijos_label_2").show();
         $("#asignaciones").show();
-        $("#otro_padre_deduce").show();
+        $("#otro_padre_deduce").show(); //------  hacer despues de asignaciones
       }
     })
     .trigger("input");
 
-  //hijos asignaciones
+  //Checking if receives auh
   $("#asignaciones").on("change", function () {
     receives_auh = document.getElementById("asignaciones").value;
   });
-  //hijos otro padre deduce
+
+  //mostrar solo si no cobra asignacion---------
+  //checking if the other father deducts his childs
   $("#otro_padre_deduce").on("change", function () {
     other_father_deducts = document.getElementById("otro_padre_deduce").value;
   });
 
   //-------------------Button-------------------
-  // Tengo que hacer algo para que se seleccionen las opciones de year, region y conyuge o si no se tire un error.
+  // Tengo que hacer algo para que si no se seleccionan las opciones de year, region y conyuge se tire un error.
   // Lo mismo con las opciones de hijos, pero solo tiene que tirarse un error si hijos es mayor a 0, si no, puede estar vacio.
   $("#button_calculate").on("click", function () {
     var yearly_payement = ZERO;
     var i = ZERO;
-    //Calcular sueldo neto anual, con aguinaldo incluido, a partir del sueldo bruto
+    // With the gross salary, we calculate the yearly net income,
+    // is multiplied by month plus because we are adding the aguinaldo
     gross_salry = $("#sueldo_bruto").val() * MONTHS_PLUS;
     net_income =
       gross_salry -
       gross_salry * retirement_contribution -
       gross_salry * healt_insurance_contribution;
 
-    //Calcular la deduccion por conyuge
+    //The spouse deduction value depends if is from Patagonia
     if (can_deduct_spouse === TRUE) {
       if (is_patagonia === TRUE) {
         spouse_deduction = CONSTANTS[year_val].DEDUCCION_CONYUGE_PATAGONIA;
@@ -195,29 +199,34 @@ $(document).ready(function () {
       spouse_deduction = ZERO;
     }
 
+    //Calculate the deduction per child
     child_deduction_factor = parseInt(document.getElementById("hijos").value);
-    //Calcular la deduccion por hijos
+    // If receives auh, it can't deduct the child
     if (receives_auh === TRUE) {
-      //si cobra asignaciones, se deduce 0
-      //si no cobra, se deduce todo
       child_deduction_factor = child_deduction_factor * ZERO;
     }
+    //If the other father deducts, each one only deducts the %50
     if (other_father_deducts === TRUE) {
-      //si el otro padre deduce, se deduce %50
-      //si no, se deduce todo
       child_deduction_factor = child_deduction_factor * FIFTY;
     }
+    //Different value depending if it is from Patagonia
     if (is_patagonia === TRUE) {
       child_deduction = child_deduction_factor * CONSTANTS[year_val].DEDUCCION_POR_HIJO_PATAGONIA;
     } else if (is_patagonia === FALSE) {
       child_deduction = child_deduction_factor * CONSTANTS[year_val].DEDUCCION_POR_HIJO;
     }
 
-    //Calcular las deducciones que tienen tope
+    // domestic employee and rent deduction have a max yearly deduction of #gmni per year
     domestic_employee_deduction = $("#servicio_domestico").val() * MONTHS;
     if (domestic_employee_deduction >= gmni) {
       domestic_employee_deduction = gmni;
     }
+    rent_deduction = $("#alquiler").val() * MONTHS;
+    if (rent_deduction >= gmni) {
+      rent_deduction = gmni;
+    }
+
+    //life insurance and retirement insurance have a max yearly deduction on his own
     life_insurance_deduction = $("#seguro_vida").val() * MONTHS;
     if (life_insurance_deduction >= CONSTANTS[year_val].TOPE_SEGUROS) {
       life_insurance_deduction = CONSTANTS[year_val].TOPE_SEGUROS;
@@ -226,21 +235,21 @@ $(document).ready(function () {
     if (retirement_insurance_deduction >= CONSTANTS[year_val].TOPE_SEGUROS) {
       retirement_insurance_deduction = CONSTANTS[year_val].TOPE_SEGUROS;
     }
+
+    //This one also has his own max deduction
     mortgage_credit_interest_deduction = $("#intereses_creditos").val() * MONTHS;
     if (mortgage_credit_interest_deduction >= CONSTANTS[year_val].TOPE_INTERESES) {
       mortgage_credit_interest_deduction = CONSTANTS[year_val].TOPE_INTERESES;
     }
 
+    //Transportation has a max deduction of 40% of gmni
     transportation_deduction = $("#movilidad").val() * MONTHS;
     if (transportation_deduction >= gmni * PORCENTAJE_MOVILIDAD) {
       transportation_deduction = gmni * PORCENTAJE_MOVILIDAD;
     }
 
-    //Calcular el resto de deducciones
-    rent_deduction = $("#alquiler").val() * MONTHS;
+    //These have no cap
     prepaid_health_deduction = $("#prepaga").val() * MONTHS;
-    traveller_and_trade_brokers_deduction = $("#viajantes").val() * MONTHS;
-    equipment_deduction = $("#equipamento").val() * MONTHS;
     other_deduction = $("#otro").val() * MONTHS;
 
     dedudctions =
@@ -252,17 +261,18 @@ $(document).ready(function () {
       mortgage_credit_interest_deduction +
       rent_deduction +
       prepaid_health_deduction +
-      traveller_and_trade_brokers_deduction +
       transportation_deduction +
-      equipment_deduction +
       other_deduction;
 
+    //The tax base is the number that is going to be in the alicuota table
     tax_base = net_income - gmni - special_deduction - dedudctions;
 
     //for testing
     var div_baseimp = document.getElementById("div_baseimp");
     div_baseimp.textContent = "".concat("", tax_base);
 
+    //This is all the checking to see where is the tax base in the alicuota table.
+    // Doing that I get the yealry tax payment, later I divide it by 12 to get the monthly value.
     if (tax_base < ZERO) {
       yearly_payement = ZERO;
 
@@ -320,7 +330,7 @@ $(document).ready(function () {
     monthly_payement = monthly_payement.toFixed(2);
 
     var div = document.getElementById("text_total");
-    mytext = "Monto a pagar $".concat(" ", monthly_payement, " mensual (promedio ", year_val, ")");
+    mytext = "Monto a pagar:".concat(" $ ", monthly_payement, " promedio mensual");
     div.textContent = mytext;
     $("#text_total").show();
   });

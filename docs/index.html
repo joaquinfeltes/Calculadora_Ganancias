@@ -21,47 +21,47 @@
   <h1 style="text-align: center">IMPUESTO A LAS GANANCIAS</h1>
   <h4>Empleados en relación de dependencia</h4>
 
-  <p>Elija el año a calcular</p>
+  <p>Eligir el año</p>
   <div class="select-option">
     <select name="select_year" id="select_year">
       <option value="">---Elegir una opción---</option>
-      <option value="2020">Año 2020</option>
-      <option value="2021">Año 2021</option>
+      <option value="2020">2020</option>
+      <option value="2021">2021</option>
     </select>
   </div>
 
   <!--   <p>TEST year <span id="div_year"></span></p>
       -->
-  <p>Vive en región patagonica?</p>
+  <p>¿Vive en región Patagónica?</p>
   <div class="select-option">
     <select name="select_region" id="select_region">
       <option value="">---Elegir una opción---</option>
-      <option value="0">resto del pais</option>
-      <option value="1">región patagonica</option>
+      <option value="0">No</option>
+      <option value="1">Sí</option>
     </select>
   </div>
 
-  <p>Ingrese sueldo bruto (promedio mensual)</p>
+  <p>Ingresar sueldo bruto (promedio mensual)</p>
   <div>
     <input type="number" id="sueldo_bruto" value="0" />
   </div>
 
-  <p>Conyuge con ingresos menores a <span id="myGMNI"></span></p>
+  <p>Cónyuge (con ingresos menores a <span id="myGMNI"></span>)</p>
 
   <div class="select-option">
     <select name="conyuge" id="conyuge">
       <option value="">---Elegir una opción---</option>
       <option value="0">No</option>
-      <option value="1">Si</option>
+      <option value="1">Sí</option>
     </select>
   </div>
 
-  <p>Cantidad de hijos menores a 18 años /discapacitados:</p>
+  <p>Hijos (menores a 18 años o discapacitados)</p>
   <div>
     <input type="number" id="hijos" value="0" />
   </div>
 
-  <p id="hijos_label_1" style="display: none">Cobra asignaciones familiares?</p>
+  <p id="hijos_label_1" style="display: none">¿Cobra asignaciones familiares?</p>
   <div class="select-option">
     <select name="asignaciones" id="asignaciones" style="display: none">
       <option value="">---Elegir una opción---</option>
@@ -70,7 +70,7 @@
     </select>
   </div>
 
-  <p id="hijos_label_2" style="display: none">El otro padre tambien deduce?</p>
+  <p id="hijos_label_2" style="display: none">¿El otro padre también deduce?</p>
   <div class="select-option">
     <select name="otro_padre_deduce" id="otro_padre_deduce" style="display: none">
       <option value="">---Elegir una opción---</option>
@@ -79,17 +79,17 @@
     </select>
   </div>
 
-  <p>Servicio domestico (sueldo mas aporte jubilatorio)</p>
+  <p>Servicio doméstico (sueldo mensual más aporte jubilatorio)</p>
   <div>
     <input type="number" id="servicio_domestico" value="0" />
   </div>
 
-  <p>Alquiler de casa o habitacion</p>
+  <p>Alquiler (casa habitación)</p>
   <div>
     <input type="number" id="alquiler" value="0" />
   </div>
 
-  <p>Cuotas de salud (prepaga)(titular y familiar a cargo)</p>
+  <p>Cobertura de salud</p>
   <div>
     <input type="number" id="prepaga" value="0" />
   </div>
@@ -104,25 +104,27 @@
     <input type="number" id="seguro_retiro" value="0" />
   </div>
 
-  <p>Intereses creditos hipotecarios</p>
+  <p>Intereses crédito hipotecario</p>
   <div>
     <input type="number" id="intereses_creditos" value="0" />
   </div>
 
+  <p>Gastos de movilidad</p>
+  <div>
+    <input type="number" id="movilidad" value="0" />
+  </div>
+
+  <!-- sacar los ultimos 2 -->
   <p>Viajantes y corredores de comercio</p>
   <div>
     <input type="number" id="viajantes" value="0" />
-  </div>
-
-  <p>Gastos movilidad</p>
-  <div>
-    <input type="number" id="movilidad" value="0" />
   </div>
 
   <p>Indumentaria y equipamento de trabajo</p>
   <div>
     <input type="number" id="equipamento" value="0" />
   </div>
+  <!-- sacar estos 2 de arriba -->
 
   <p>Otras deducciones</p>
   <div>
@@ -131,7 +133,7 @@
 
   <div>
     <a class="icon document color button" type="submit" id="button_calculate" value="Calculate">
-      Calcular</a
+      CALCULAR</a
     >
   </div>
   <!-- para ver la base imponible -->
