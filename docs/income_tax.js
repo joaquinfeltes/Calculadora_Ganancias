@@ -88,6 +88,7 @@ const CONSTANTS = {
 $(document).ready(function () {
   var retirement_contribution = APORTE_JUBILATORIO;
   var healt_insurance_contribution = APORTE_OBRA_SOCIAL;
+  // Hardcoded to show a number in the spouse div, it changes when the year or the region are selected
   var gmni = CONSTANTS[2020].GMNI;
   var child_deduction_factor = ZERO;
   var special_deduction = ZERO;
@@ -105,7 +106,7 @@ $(document).ready(function () {
 
   //Year parsing
   //Here and in the parse of the region the gmni is calculated
-  //this is to show it in the middle of the programm
+  //to show it in the middle of the programm
   $("#select_year").on("change", function () {
     year_val = parseInt(document.getElementById("select_year").value);
     if (is_patagonia === TRUE) {
@@ -143,13 +144,13 @@ $(document).ready(function () {
     .on("input", function () {
       childs_amount = parseInt(document.getElementById("hijos").value);
       if (childs_amount === ZERO) {
-        //Without childs, this selects are inneccesary without childs
+        //This selects are inneccesary without childs
         $("#hijos_label_1").hide();
         $("#hijos_label_2").hide();
         $("#asignaciones").hide();
         $("#otro_padre_deduce").hide();
       } else {
-        //With childs, if there are childs, show the "asignaciones" select
+        //if there are childs, show the "asignaciones" select
         $("#hijos_label_1").show();
         $("#asignaciones").show();
       }
@@ -283,24 +284,10 @@ $(document).ready(function () {
     //The tax base is the number that is going to be in the alicuota table
     var tax_base = net_income - gmni - special_deduction - dedudctions;
 
-    //for testing-----------------------
-    var div_baseimp = document.getElementById("div_baseimp");
-    div_baseimp.textContent = "".concat("", tax_base);
-
     //This is all the checking to see where is the tax base in the alicuota table.
     //Doing that I get the yealry tax payment, later I divide it by 12 to get the monthly value.
     if (tax_base < ZERO) {
       yearly_payement = ZERO;
-
-      //para testeo
-      var div_baseimp = document.getElementById("div_baseimp");
-      div_baseimp.textContent = "este es el monto ".concat(
-        "",
-        tax_base,
-        ", estamos en la primera categoria, ",
-        " este es el yearly: ",
-        yearly_payement
-      );
     } else if (tax_base < CONSTANTS[year_val].TABLA_ALICUOTA_TOPES[SIZE]) {
       while (yearly_payement === ZERO) {
         if (
@@ -311,17 +298,6 @@ $(document).ready(function () {
             CONSTANTS[year_val].TABLA_ALICUOTA_BASES[i] +
             (tax_base - CONSTANTS[year_val].TABLA_ALICUOTA_TOPES[i]) *
               CONSTANTS[year_val].TABLA_ALICUOTA_PORCENTAJES[i];
-
-          //para testeo
-          var div_baseimp = document.getElementById("div_baseimp");
-          div_baseimp.textContent = "este es el monto ".concat(
-            "",
-            tax_base,
-            ", esta es la i : ",
-            i,
-            " este es el yearly: ",
-            yearly_payement
-          );
         }
         i++;
       }
@@ -330,16 +306,6 @@ $(document).ready(function () {
         CONSTANTS[year_val].TABLA_ALICUOTA_BASES[SIZE] +
         (tax_base - CONSTANTS[year_val].TABLA_ALICUOTA_TOPES[SIZE]) *
           CONSTANTS[year_val].TABLA_ALICUOTA_PORCENTAJES[SIZE];
-
-      //para testeo
-      var div_baseimp = document.getElementById("div_baseimp");
-      div_baseimp.textContent = "este es el monto ".concat(
-        "",
-        tax_base,
-        ", estamos en la ultima categoria, ",
-        " este es el yearly: ",
-        yearly_payement
-      );
     }
 
     var monthly_payement = yearly_payement / MONTHS;
