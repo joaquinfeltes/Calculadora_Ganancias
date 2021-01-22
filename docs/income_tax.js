@@ -195,7 +195,7 @@ $(document).ready(function () {
     }
 
     // With the gross salary, we calculate the yearly net income,
-    // is multiplied by month plus because we are adding the aguinaldo
+    // it is multiplied by months plus because we are adding the aguinaldo
     var gross_salry = $("#sueldo_bruto").val() * MONTHS_PLUS;
     var net_income =
       gross_salry -
@@ -219,7 +219,7 @@ $(document).ready(function () {
     if (receives_auh === TRUE) {
       child_deduction_factor = child_deduction_factor * ZERO;
     }
-    //If the other father deducts, each one only deducts the %50
+    //If the other father deducts, only deducts the %50
     if (other_father_deducts === TRUE) {
       child_deduction_factor = child_deduction_factor * FIFTY;
     }
@@ -262,7 +262,7 @@ $(document).ready(function () {
       transportation_deduction = gmni * PORCENTAJE_MOVILIDAD;
     }
 
-    //These have no cap
+    //These have no max deduction per year
     var prepaid_health_deduction = $("#prepaga").val() * MONTHS;
     var other_deduction = $("#otro").val() * MONTHS;
 
@@ -281,12 +281,12 @@ $(document).ready(function () {
     //The tax base is the number that is going to be in the alicuota table
     var tax_base = net_income - gmni - special_deduction - dedudctions;
 
-    //for testing
+    //for testing-----------------------
     var div_baseimp = document.getElementById("div_baseimp");
     div_baseimp.textContent = "".concat("", tax_base);
 
     //This is all the checking to see where is the tax base in the alicuota table.
-    // Doing that I get the yealry tax payment, later I divide it by 12 to get the monthly value.
+    //Doing that I get the yealry tax payment, later I divide it by 12 to get the monthly value.
     if (tax_base < ZERO) {
       yearly_payement = ZERO;
 
