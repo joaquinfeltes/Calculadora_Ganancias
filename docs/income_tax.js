@@ -143,13 +143,13 @@ $(document).ready(function () {
     .on("input", function () {
       childs_amount = parseInt(document.getElementById("hijos").value);
       if (childs_amount === ZERO) {
-        //Without childs
+        //Without childs, this selects are inneccesary without childs
         $("#hijos_label_1").hide();
         $("#hijos_label_2").hide();
         $("#asignaciones").hide();
         $("#otro_padre_deduce").hide();
       } else {
-        //With childs
+        //With childs, if there are childs, show the "asignaciones" select
         $("#hijos_label_1").show();
         $("#asignaciones").show();
       }
@@ -160,9 +160,11 @@ $(document).ready(function () {
   $("#asignaciones").on("change", function () {
     receives_auh = document.getElementById("asignaciones").value;
     if (receives_auh === FALSE) {
+      //if is false, show the "otro padre deduce" select
       $("#otro_padre_deduce").show();
       $("#hijos_label_2").show();
     } else {
+      //if is true, hide it
       $("#otro_padre_deduce").hide();
       $("#hijos_label_2").hide();
     }
@@ -202,7 +204,7 @@ $(document).ready(function () {
       gross_salry * retirement_contribution -
       gross_salry * healt_insurance_contribution;
 
-    //The spouse deduction value depends if is from Patagonia
+    //The spouse deduction value depends on if it is from Patagonia
     if (can_deduct_spouse === TRUE) {
       if (is_patagonia === TRUE) {
         spouse_deduction = CONSTANTS[year_val].DEDUCCION_CONYUGE_PATAGONIA;
@@ -230,7 +232,7 @@ $(document).ready(function () {
       child_deduction = child_deduction_factor * CONSTANTS[year_val].DEDUCCION_POR_HIJO;
     }
 
-    // domestic employee and rent deduction have a max yearly deduction of #gmni per year
+    // domestic employee and rent deduction have a max yearly deduction of gmni per year
     var domestic_employee_deduction = $("#servicio_domestico").val() * MONTHS;
     if (domestic_employee_deduction >= gmni) {
       domestic_employee_deduction = gmni;
