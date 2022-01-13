@@ -25,26 +25,10 @@ const CONSTANTS = {
     DEDUCCION_ESPECIAL_EMPLEADO_PATAGONIA: 725331.02,
     TABLA_ALICUOTA_PORCENTAJES: [0.05, 0.09, 0.12, 0.15, 0.19, 0.23, 0.27, 0.31, 0.35],
     TABLA_ALICUOTA_TOPES: [
-      0,
-      47669.16,
-      95338.32,
-      143007.48,
-      190676.65,
-      286014.96,
-      381353.28,
-      572029.92,
-      762706.57,
+      0, 47669.16, 95338.32, 143007.48, 190676.65, 286014.96, 381353.28, 572029.92, 762706.57,
     ],
     TABLA_ALICUOTA_BASES: [
-      0,
-      2383.46,
-      6673.68,
-      12393.98,
-      19544.36,
-      37658.64,
-      59586.45,
-      111069.14,
-      170178.9,
+      0, 2383.46, 6673.68, 12393.98, 19544.36, 37658.64, 59586.45, 111069.14, 170178.9,
     ],
   },
   2021: {
@@ -60,26 +44,10 @@ const CONSTANTS = {
     DEDUCCION_ESPECIAL_EMPLEADO_PATAGONIA: 981924.74,
     TABLA_ALICUOTA_PORCENTAJES: [0.05, 0.09, 0.12, 0.15, 0.19, 0.23, 0.27, 0.31, 0.35],
     TABLA_ALICUOTA_TOPES: [
-      0,
-      64532.64,
-      129065.29,
-      193597.93,
-      258130.58,
-      387195.86,
-      516261.14,
-      774391.71,
-      1032522.3,
+      0, 64532.64, 129065.29, 193597.93, 258130.58, 387195.86, 516261.14, 774391.71, 1032522.3,
     ],
     TABLA_ALICUOTA_BASES: [
-      0,
-      3226.63,
-      9034.57,
-      16778.49,
-      26458.39,
-      50980.79,
-      80665.8,
-      150361.06,
-      230381.54,
+      0, 3226.63, 9034.57, 16778.49, 26458.39, 50980.79, 80665.8, 150361.06, 230381.54,
     ],
   },
 };
@@ -148,7 +116,9 @@ $(document).ready(function () {
         $("#hijos_label_1").hide();
         $("#hijos_label_2").hide();
         $("#asignaciones").hide();
+        $("#asignaciones").val("");
         $("#otro_padre_deduce").hide();
+        $("#otro_padre_deduce").val("");
       } else {
         //if there are childs, show the "asignaciones" select
         $("#hijos_label_1").show();
@@ -167,6 +137,7 @@ $(document).ready(function () {
     } else {
       //if is true, hide it
       $("#otro_padre_deduce").hide();
+      $("#otro_padre_deduce").val("");
       $("#hijos_label_2").hide();
     }
   });
