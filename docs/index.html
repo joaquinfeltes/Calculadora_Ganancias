@@ -19,14 +19,15 @@
 
 <fieldset>
   <h1 style="text-align: center">IMPUESTO A LAS GANANCIAS</h1>
+  <h1 style="text-align: center">EN PROCESO</h1>
   <h4>Empleados en relación de dependencia</h4>
 
   <p>Eligir el año</p>
   <div class="select-option">
     <select name="select_year" id="select_year">
       <option value="">---Elegir una opción---</option>
-      <option value="2020">2020</option>
       <option value="2021">2021</option>
+      <option value="2022">2022</option>
     </select>
   </div>
 
@@ -44,6 +45,15 @@
     <input type="number" id="sueldo_bruto" value="0" />
   </div>
 
+  <p id="no_tax_message" class="result" style="display: none">No alcanzado por el impuesto</p>
+
+  <!-- <p id="special_deduction_message" style="display: none">
+    Corresponde deducción especial según la tabla
+  </p>
+  <div>
+    <input type="number" id="special_deduction_table" value="0" style="display: none" />
+  </div> -->
+
   <p>Cónyuge (con ingresos menores a <span id="myGMNI"></span>)</p>
 
   <div class="select-option">
@@ -54,9 +64,14 @@
     </select>
   </div>
 
-  <p>Hijos (menores a 18 años o discapacitados)</p>
+  <p>Hijos (menores a 18 años)</p>
   <div>
     <input type="number" id="hijos" value="0" />
+  </div>
+
+  <p>Hijos (incapacitados para el trabajo)</p>
+  <div>
+    <input type="number" id="hijos_incapacitados" value="0" />
   </div>
 
   <p id="hijos_label_1" style="display: none">¿Cobra asignaciones familiares?</p>
