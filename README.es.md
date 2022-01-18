@@ -6,7 +6,7 @@ Esta es una simple calculadora hecha para el blog [Mi presupuesto familiar](http
 
 Para más información en como tu salario y deducciones van a afectar lo que vas a pagar con este impuesto, [mirá este artículo del blog](https://www.presupuestofamiliar.com.ar/impuesto-a-las-ganancias-cuanto-vas-a-pagar-en-2022/).
 
-Estoy hosteando esta calculadora en Github pages, podes probarla [acá](https://joaquinfeltes.github.io/Calculadora_Ganancias/).
+Estoy hosteando esta calculadora en Github pages, podes probarla [acá](https://joaquinfeltes.github.io/Calculadora_Ganancias/v_2022).
 
 ### Un ejemplo de la calculadora en uso:
 

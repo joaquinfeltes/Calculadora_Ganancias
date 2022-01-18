@@ -6,7 +6,7 @@ This is a simple calculator done for embedding in the blog [Mi presupuesto famil
 
 For more information on how your salary and deductions will affect the amount in taxes you will pay, check [this article in the blog](https://www.presupuestofamiliar.com.ar/impuesto-a-las-ganancias-cuanto-vas-a-pagar-en-2022/).
 
-I'm hosting the calculator in Github pages, check it out [here](https://joaquinfeltes.github.io/Calculadora_Ganancias/).
+I'm hosting the calculator in Github pages, check it out [here](https://joaquinfeltes.github.io/Calculadora_Ganancias/v_2022).
 
 ### Here's an example of the calculator working:
 
