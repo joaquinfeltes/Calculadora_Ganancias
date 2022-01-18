@@ -6,11 +6,19 @@ h1 {
   text-align: center;
 }
 
-h4 {
+h3 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 500;
   line-height: 1.1;
   color: #007bc1;
+  text-align: center;
+}
+
+h4 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #434647;
   text-align: center;
 }
 
