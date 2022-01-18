@@ -496,7 +496,8 @@ $(document).ready(function () {
       other_deduction;
 
     //The tax base is the number that is going to be in the alicuota table
-    var tax_base = net_income - gmni - special_deduction - special_deduction_table - deductions;
+    var tax_base =
+      net_income - gmni - special_deduction - special_deduction_table * 12 - deductions;
 
     //This is all the checking to see where is the tax base in the alicuota table.
     //Doing that I get the yealry tax payment, later I divide it by 12 to get the monthly value.
