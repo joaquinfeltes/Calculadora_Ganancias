@@ -18,14 +18,22 @@
 </html>
 
 <fieldset>
-  <h1 style="text-align: center">IMPUESTO A LAS GANANCIAS</h1>
-  <h4>Empleados en relación de dependencia</h4>
+  <h1 style="text-align: center">IMPUESTO A LAS GANANCIAS 2022</h1>
+  <h3>Empleados en relación de dependencia</h3>
+  <h4>
+    El resultado de esta calculadora se estima en función de los supuestos (el monto en la realidad
+    puede diferir por varias circunstancias)
+  </h4>
 
   <p>Eligir el año</p>
   <div class="select-option">
     <select name="select_year" id="select_year">
       <option value="">---Elegir una opción---</option>
-      <option value="2020">2020</option>
+      <option value="20223">2022 noviembre - diciembre</option>
+      <option value="20222">2022 junio - octubre</option>
+      <option value="20221">2022 enero - mayo</option>
+      <option value="20212">2021 septiembre - diciembre</option>
+      <option value="20211">2021 enero - agosto</option>
     </select>
   </div>
 
@@ -43,6 +51,8 @@
     <input type="number" id="sueldo_bruto" value="0" />
   </div>
 
+  <p id="no_tax_message" class="result" style="display: none">No alcanzado por el impuesto</p>
+
   <p>Cónyuge (con ingresos menores a <span id="myGMNI"></span>)</p>
 
   <div class="select-option">
@@ -53,9 +63,14 @@
     </select>
   </div>
 
-  <p>Hijos (menores a 18 años o discapacitados)</p>
+  <p>Hijos (menores a 18 años)</p>
   <div>
     <input type="number" id="hijos" value="0" />
+  </div>
+
+  <p>Hijos (incapacitados para el trabajo)</p>
+  <div>
+    <input type="number" id="hijos_incapacitados" value="0" />
   </div>
 
   <p id="hijos_label_1" style="display: none">¿Cobra asignaciones familiares?</p>
