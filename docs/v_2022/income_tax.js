@@ -1,5 +1,6 @@
 //Constants
 const ZERO = 0;
+const NONE = -1;
 const SIZE = 8; //Last index of alicuota table
 const MONTHS = 12;
 const MONTHS_PLUS = MONTHS + 1; //Months + 1 for AGUINALDO
@@ -173,12 +174,10 @@ const CONSTANTS = {
         GMNI: 252564.84,
         DEDUCCION_CONYUGE: 235457.25,
         DEDUCCION_POR_HIJO: 118741.97,
-        //  DEDUCCION_POR_HIJO incapacitado: 237483.94,
         DEDUCCION_ESPECIAL_EMPLEADO: 1212311.24,
         GMNI_PATAGONIA: 308129.12,
         DEDUCCION_CONYUGE_PATAGONIA: 287257.86,
         DEDUCCION_POR_HIJO_PATAGONIA: 144865.21,
-        // DEDUCCION_POR_HIJO_INCAPACITADO_PATAGONIA: 289730.42,
         DEDUCCION_ESPECIAL_EMPLEADO_PATAGONIA: 1479019.72,
         TABLA_ALICUOTA_PORCENTAJES: [0.05, 0.09, 0.12, 0.15, 0.19, 0.23, 0.27, 0.31, 0.35],
         TABLA_ALICUOTA_TOPES: [
@@ -239,12 +238,10 @@ const CONSTANTS = {
         GMNI: 252564.84,
         DEDUCCION_CONYUGE: 235457.25,
         DEDUCCION_POR_HIJO: 118741.97,
-        //  DEDUCCION_POR_HIJO incapacitado: 237483.94,
         DEDUCCION_ESPECIAL_EMPLEADO: 1212311.24,
         GMNI_PATAGONIA: 308129.12,
         DEDUCCION_CONYUGE_PATAGONIA: 287257.86,
         DEDUCCION_POR_HIJO_PATAGONIA: 144865.21,
-        // DEDUCCION_POR_HIJO_INCAPACITADO_PATAGONIA: 289730.42,
         DEDUCCION_ESPECIAL_EMPLEADO_PATAGONIA: 1479019.72,
         TABLA_ALICUOTA_PORCENTAJES: [0.05, 0.09, 0.12, 0.15, 0.19, 0.23, 0.27, 0.31, 0.35],
         TABLA_ALICUOTA_TOPES: [
@@ -321,12 +318,10 @@ const CONSTANTS = {
         GMNI: 252564.84,
         DEDUCCION_CONYUGE: 235457.25,
         DEDUCCION_POR_HIJO: 118741.97,
-        //  DEDUCCION_POR_HIJO incapacitado: 237483.94,
         DEDUCCION_ESPECIAL_EMPLEADO: 1212311.24,
         GMNI_PATAGONIA: 308129.12,
         DEDUCCION_CONYUGE_PATAGONIA: 287257.86,
         DEDUCCION_POR_HIJO_PATAGONIA: 144865.21,
-        // DEDUCCION_POR_HIJO_INCAPACITADO_PATAGONIA: 289730.42,
         DEDUCCION_ESPECIAL_EMPLEADO_PATAGONIA: 1479019.72,
         TABLA_ALICUOTA_PORCENTAJES: [0.05, 0.09, 0.12, 0.15, 0.19, 0.23, 0.27, 0.31, 0.35],
         TABLA_ALICUOTA_TOPES: [
@@ -384,17 +379,15 @@ const CONSTANTS = {
     },
 
     20231: {
-        TOPE_SEGUROS: 24000,
+        TOPE_SEGUROS: 42921.24,
         TOPE_INTERESES: 20000,
-        GMNI: 45683.19,
+        GMNI: 451683.19,
         DEDUCCION_CONYUGE: 421088.24,
         DEDUCCION_POR_HIJO: 212356.37,
-        //  DEDUCCION_POR_HIJO incapacitado: 424712.74,
         DEDUCCION_ESPECIAL_EMPLEADO: 2168079.35,
         GMNI_PATAGONIA: 551053.52,
         DEDUCCION_CONYUGE_PATAGONIA: 513727.67,
         DEDUCCION_POR_HIJO_PATAGONIA: 259074.78,
-        // DEDUCCION_POR_HIJO_INCAPACITADO_PATAGONIA: 518149.56,
         DEDUCCION_ESPECIAL_EMPLEADO_PATAGONIA: 2645056.82,
         TABLA_ALICUOTA_PORCENTAJES: [0.05, 0.09, 0.12, 0.15, 0.19, 0.23, 0.27, 0.31, 0.35],
         TABLA_ALICUOTA_TOPES: [
@@ -456,17 +449,15 @@ const CONSTANTS = {
     },
 
     20232: {
-        TOPE_SEGUROS: 24000,
+        TOPE_SEGUROS: 42921.24,
         TOPE_INTERESES: 20000,
-        GMNI: 45683.19,
+        GMNI: 451683.19,
         DEDUCCION_CONYUGE: 421088.24,
         DEDUCCION_POR_HIJO: 212356.37,
-        //  DEDUCCION_POR_HIJO incapacitado: 424712.74,
         DEDUCCION_ESPECIAL_EMPLEADO: 2168079.35,
         GMNI_PATAGONIA: 551053.52,
         DEDUCCION_CONYUGE_PATAGONIA: 513727.67,
         DEDUCCION_POR_HIJO_PATAGONIA: 259074.78,
-        // DEDUCCION_POR_HIJO_INCAPACITADO_PATAGONIA: 518149.56,
         DEDUCCION_ESPECIAL_EMPLEADO_PATAGONIA: 2645056.82,
         TABLA_ALICUOTA_PORCENTAJES: [0.05, 0.09, 0.12, 0.15, 0.19, 0.23, 0.27, 0.31, 0.35],
         TABLA_ALICUOTA_TOPES: [
@@ -524,17 +515,15 @@ const CONSTANTS = {
         ],
     },
     20233: {
-        TOPE_SEGUROS: 24000,
+        TOPE_SEGUROS: 42921.24,
         TOPE_INTERESES: 20000,
-        GMNI: 45683.19,
+        GMNI: 451683.19,
         DEDUCCION_CONYUGE: 421088.24,
         DEDUCCION_POR_HIJO: 212356.37,
-        //  DEDUCCION_POR_HIJO incapacitado: 424712.74,
         DEDUCCION_ESPECIAL_EMPLEADO: 2168079.35,
         GMNI_PATAGONIA: 551053.52,
         DEDUCCION_CONYUGE_PATAGONIA: 513727.67,
         DEDUCCION_POR_HIJO_PATAGONIA: 259074.78,
-        // DEDUCCION_POR_HIJO_INCAPACITADO_PATAGONIA: 518149.56,
         DEDUCCION_ESPECIAL_EMPLEADO_PATAGONIA: 2645056.82,
         TABLA_ALICUOTA_PORCENTAJES: [0.05, 0.09, 0.12, 0.15, 0.19, 0.23, 0.27, 0.31, 0.35],
         TABLA_ALICUOTA_TOPES: [
@@ -596,9 +585,33 @@ const CONSTANTS = {
             11919, 10606, 9284, 7963, 6648, 5329, 4011, 2704, 1388, 0
         ],
     },
+    20234: {
+        TOPE_SEGUROS: 42921.24,
+        TOPE_INTERESES: 20000,
+        GMNI: 451683.19,
+        DEDUCCION_CONYUGE: 421088.24,
+        DEDUCCION_POR_HIJO: 212356.37,
+        DEDUCCION_ESPECIAL_EMPLEADO: 2168079.35,
+        GMNI_PATAGONIA: 551053.52,
+        DEDUCCION_CONYUGE_PATAGONIA: 513727.67,
+        DEDUCCION_POR_HIJO_PATAGONIA: 259074.78,
+        DEDUCCION_ESPECIAL_EMPLEADO_PATAGONIA: 2645056.82,
+        TABLA_ALICUOTA_PORCENTAJES: [0.00, 0.09, 0.12, 0.15, 0.19, 0.23, 0.27, 0.31, 0.35],
+        TABLA_ALICUOTA_TOPES: [
+            0, 16800000, 18312000, 19776960, 21161347.2, 22431028.08, 23552579.4, 24494682.6, 25229523.12,
+        ],
+        TABLA_ALICUOTA_BASES: [
+            0, 0, 136080, 311875.20, 519533.28, 760772.64, 1018729,44, 1273097.28, 1500897.84,
+        ],
+        SUELO_IMPUESTO: 1770000,
+        // From now on we don't have this deduction. 
+        // So we make it 0 and the salary won't be higher than SUELO_IMPUESTO
+        // and lower than SUELO_DEDUCCION_ESPECIAL at the same time
+        SUELO_DEDUCCION_ESPECIAL: 0,
+    },
 
 };
- 
+
 //Functions
 $(document).ready(function() {
     var retirement_contribution = APORTE_JUBILATORIO;
@@ -742,7 +755,7 @@ $(document).ready(function() {
     //-------------------Button-------------------
     $("#button_calculate").on("click", function() {
         var special_deduction_table = ZERO;
-        var yearly_payement = ZERO;
+        var yearly_payement = NONE;
         var i = ZERO;
         //checking that all the selects are selected when neccesary
         if (
@@ -868,7 +881,7 @@ $(document).ready(function() {
         if (tax_base < ZERO) {
             yearly_payement = ZERO;
         } else if (tax_base < CONSTANTS[year_val].TABLA_ALICUOTA_TOPES[SIZE]) {
-            while (yearly_payement === ZERO) {
+            while (yearly_payement === NONE) {
                 if (
                     tax_base >= CONSTANTS[year_val].TABLA_ALICUOTA_TOPES[i] &&
                     tax_base < CONSTANTS[year_val].TABLA_ALICUOTA_TOPES[i + 1]
