@@ -384,9 +384,9 @@ const CONSTANTS = {
     },
 
     20231: {
-        TOPE_SEGUROS: 24000,
+        TOPE_SEGUROS: 42921.24,
         TOPE_INTERESES: 20000,
-        GMNI: 45683.19,
+        GMNI: 451683.19,
         DEDUCCION_CONYUGE: 421088.24,
         DEDUCCION_POR_HIJO: 212356.37,
         //  DEDUCCION_POR_HIJO incapacitado: 424712.74,
@@ -456,9 +456,9 @@ const CONSTANTS = {
     },
 
     20232: {
-        TOPE_SEGUROS: 24000,
+        TOPE_SEGUROS: 42921.24,
         TOPE_INTERESES: 20000,
-        GMNI: 45683.19,
+        GMNI: 451683.19,
         DEDUCCION_CONYUGE: 421088.24,
         DEDUCCION_POR_HIJO: 212356.37,
         //  DEDUCCION_POR_HIJO incapacitado: 424712.74,
