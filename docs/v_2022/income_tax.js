@@ -603,7 +603,7 @@ const CONSTANTS = {
         TABLA_ALICUOTA_BASES: [
             0, 0, 136080, 311875.20, 519533.28, 760772.64, 1018729,44, 1273097.28, 1500897.84,
         ],
-        SUELO_IMPUESTO: 1770000,
+        SUELO_IMPUESTO: 1980000,
         // From now on we don't have this deduction. 
         // So we make it 0 and the salary won't be higher than SUELO_IMPUESTO
         // and lower than SUELO_DEDUCCION_ESPECIAL at the same time
