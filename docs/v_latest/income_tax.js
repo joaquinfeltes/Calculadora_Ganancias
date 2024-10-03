@@ -260,7 +260,7 @@ $(document).ready(function() {
         monthly_payement = monthly_payement.toFixed(2);
 
         var result_div = document.getElementById("text_total");
-        mytext = "Monto a pagar:".concat(" $ ", monthly_payement, " promedio mensual");
+        mytext = "Monto a pagar:".concat(" $ ", monthly_payement, " en el mes");
         result_div.textContent = mytext;
         $("#text_total").show();
     });
