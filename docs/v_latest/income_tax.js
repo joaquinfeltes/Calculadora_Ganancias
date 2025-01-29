@@ -38,13 +38,27 @@ const CONSTANTS = {
             0, 5667.50, 15869.00, 29471.00, 54974.75, 151889.00, 269206.25, 475786.63, 831563.94
         ],
     },
+    2025_1: {
+        TOPE_SEGUROS: 16320.45,
+        GMNI: 326355.70,
+        DEDUCCION_CONYUGE: 307361.61,
+        DEDUCCION_POR_HIJO: 155003.58,
+        DEDUCCION_ESPECIAL_EMPLEADO: 1566507.35,
+        TABLA_ALICUOTA_PORCENTAJES: [0.05, 0.09, 0.12, 0.15, 0.19, 0.23, 0.27, 0.31, 0.35],
+        TABLA_ALICUOTA_TOPES: [
+            0, 126697.64, 253395.28, 380092.92, 570139.38, 1140278.75, 1710418.13, 2565627.20, 3848440.79
+            ],
+        TABLA_ALICUOTA_BASES: [
+            0, 6334.88, 17737.67, 32941.39, 61448.36, 169774.84, 300906.89, 531813.34, 929485.56
+        ],
+    },
 };
 
 
 //Functions
 $(document).ready(function() {
     // Hardcoded to show a number in the spouse div, it changes when the year or the region are selected
-    var gmni = CONSTANTS[2024_1].GMNI;
+    var gmni = CONSTANTS[20251].GMNI;
     var child_deduction_factor = ZERO;
     var special_deduction = ZERO;
     var spouse_deduction = ZERO;
